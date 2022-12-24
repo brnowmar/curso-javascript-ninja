@@ -1,22 +1,30 @@
-# Desafio da semana #4
 
-```js
 /*
 Declare uma variável chamada `isTruthy`, e atribua a ela uma função que recebe
 um único parâmetro como argumento. Essa função deve retornar `true` se o
 equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
-?
+let isTruthy = function(param){
+    return param ? true : false;
+}
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
-?
-
+console.log(isTruthy(0))
+console.log(isTruthy(-0))
+console.log(isTruthy(NaN))
+console.log(isTruthy(false))
+console.log(isTruthy(''))
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
-?
-
+console.log(isTruthy(1))
+console.log(isTruthy(-1))
+console.log(isTruthy(273))
+console.log(isTruthy('hellobitches'))
+console.log(isTruthy([1,2,3]))
+console.log(isTruthy({nome:'bruno'}))
+console.log(isTruthy(true))
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
 seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
@@ -29,35 +37,76 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `assentos` - Number - cinco por padrão
 - `quantidadePessoas` - Number - zero por padrão
 */
-?
+let carro = {
+    marca : 'wolkswagen',
+    modelo : 'gol',
+    placa : 'ktr231',
+    ano : 2013,
+    cor : 'azul',
+    quantasPortas : 4,
+    assentos : 5,
+    quantidadeDePessoas : 0,
+    mudarCor : function(param){
+        return carro.cor = param;
+    },
+    obterCor : function(){
+        return carro.cor;
+    },
+    obterModelo : function(){
+        return carro.modelo;
+    },
+    obterMarca : function(){
+        return carro.marca;
+    },
+    obterMarcaModelo : function(){
+        return 'Esse carro é um '+ carro.marca +' '+  carro.modelo + '.';
+    },
+    addPeople : function(pessoasAentrar){
+        let pluralDePessoas = 'pessoas'
+        let quantasCabem = carro.quantidadeDePessoas - carro.assentos;
+        if(quantasCabem === 1){
+            pluralDePessoas = 'pessoa'
+        }
+        if(carro.quantidadeDePessoas === 5){
+            return console.log('o carro ja esta lotado!')
+        }
+        else if(pessoasAentrar >= 5){
+            return 'Só cabem mais '+ quantasPessoasCabem+ ' pessoas!'
+        }
+        else {
+
+        }
+        return 'ja temos '+carro.quantidadeDePessoas+' '+ pluralDePessoas+ ' no carro!'
+    }
+}
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
-?
+
 
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
-?
+
 
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
-?
+
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
-?
+
 
 /*
 Crie um método chamado `obterMarcaModelo`, que retorne:
 "Esse carro é um [MARCA] [MODELO]"
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
-?
+
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -75,7 +124,7 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -83,40 +132,40 @@ utilize sempre o formato de invocação do método (ou chamada da propriedade),
 adicionando comentários _inline_ ao lado com o valor retornado, se o método
 retornar algum valor.
 
-Qual a cor atual do carro?
+Qual a cor atual do carro
 */
-?
+
 
 // Mude a cor do carro para vermelho.
-?
 
-// E agora, qual a cor do carro?
-?
+
+// E agora, qual a cor do carro
+
 
 // Mude a cor do carro para verde musgo.
-?
 
-// E agora, qual a cor do carro?
-?
 
-// Qual a marca e modelo do carro?
-?
+// E agora, qual a cor do carro
+
+
+// Qual a marca e modelo do carro
+
 
 // Adicione 2 pessoas no carro.
-?
+
 
 // Adicione mais 4 pessoas no carro.
-?
+
 
 // Faça o carro encher.
-?
+
 
 // Tire 4 pessoas do carro.
-?
+
 
 // Adicione 10 pessoas no carro.
-?
 
-// Quantas pessoas temos no carro?
-?
-```
+
+// Quantas pessoas temos no carro
+
+
