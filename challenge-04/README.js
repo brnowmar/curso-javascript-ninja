@@ -62,22 +62,21 @@ let carro = {
         return 'Esse carro é um '+ carro.marca +' '+  carro.modelo + '.';
     },
     addPeople : function(pessoasAentrar){
-        let pluralDePessoas = 'pessoas'
-        let quantasCabem = carro.quantidadeDePessoas - carro.assentos;
-        if(quantasCabem === 1){
-            pluralDePessoas = 'pessoa'
+        let totalPessoas = carro.quantidadeDePessoas + pessoasAentrar
+        if(carro.quantidadeDePessoas === carro.assentos && totalPessoas >= 5 ){
+            return console.log('O carro ja esta lotado!')
+        };
+        
+        if (totalPessoas > carro.assentos){
+            let quantasPessoasCabem = carro.assentos - carro.quantidadeDePessoas
+            let pluralOuSingular = quantasPessoasCabem === 1 ? ' pessoa' : ' pessoas';
+            return console.log('Só cabem mais'+ quantasPessoasCabem + pluralOuSingular +' no carro!')
         }
-        if(carro.quantidadeDePessoas === 5){
-            return console.log('o carro ja esta lotado!')
-        }
-        else if(pessoasAentrar >= 5){
-            return 'Só cabem mais '+ quantasPessoasCabem+ ' pessoas!'
-        }
-        else {
 
-        }
-        return 'ja temos '+carro.quantidadeDePessoas+' '+ pluralDePessoas+ ' no carro!'
+        carro.quantidadeDePessoas += pessoasAentrar;
+        return 'Já temos ' +totalPessoas +' no carro!'
     }
+
 }
 
 /*
@@ -167,5 +166,4 @@ Qual a cor atual do carro
 
 
 // Quantas pessoas temos no carro
-
 
