@@ -122,7 +122,8 @@
     */
     // ?
     operationSignal = '+'
-    let sum = calculator(operationSignal)
+    let sum = calculator(operationSignal);
+
 
     /*
     PASSO 3:
@@ -141,6 +142,8 @@
         x = 10;
         y = 20;
         console.log(showOperationMessage(x, operationSignal, y), sum(x, y))
+    } else {
+        console.log(showErrorMessage(operationSignal));
     }
 
     /*
@@ -149,10 +152,55 @@
     "multiplication", "division" e "mod".
     */
     // ?
-
+    operationSignal = '-'
+    let subtraction = calculator(operationSignal)
+    if (subtraction) {
+        x = 10;
+        y = 20;
+        console.log(showOperationMessage(x, operationSignal, y), subtraction(x, y))
+    } else {
+        console.log(showErrorMessage(operationSignal));
+    };
+    operationSignal = '/'
+    let division = calculator(operationSignal)
+    if (division) {
+        x = 10;
+        y = 20;
+        console.log(showOperationMessage(x, operationSignal, y), division(x, y))
+    } else {
+        console.log(showErrorMessage(operationSignal));
+    };
+    operationSignal = '*'
+    let multiplication = calculator(operationSignal)
+    if (multiplication) {
+        x = 10;
+        y = 20;
+        console.log(showOperationMessage(x, operationSignal, y), multiplication(x, y))
+    } else {
+        console.log(showErrorMessage(operationSignal));
+    };
+    operationSignal = '%'
+    let mod = calculator(operationSignal)
+    if (mod) {
+        x = 10;
+        y = 20;
+        console.log(showOperationMessage(x, operationSignal, y), mod(x, y))
+    } else {
+        console.log(showErrorMessage(operationSignal));
+    };
     /*
     Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
     a mensagem de erro será mostrada no console.
     */
     // ?
+    operationSignal = 'lqlei'
+    let invalid = calculator(operationSignal)
+    if (invalid) {
+        x = 10;
+        y = 20;
+        console.log(showOperationMessage(x, operationSignal, y), invalid(x, y))
+    } else {
+        console.log(showErrorMessage(operationSignal));
+    };
+
 })();
