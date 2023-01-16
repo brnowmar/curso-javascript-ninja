@@ -7,39 +7,54 @@
     Crie um array e mostre no console a representação em String desse array,
     usando o método visto na aula 13.
     */
-    let myArray = [1, 2, 3, 5, 6];
+    let myArray = [1, 2, 3, 4, 5];
+
 
     console.log('O array em formato de string é:');
     // ?
+    console.log(myArray)
     console.log(myArray.toString())
+
     /*
     Crie 2 arrays `sul` e `sudeste`, que serão as regiões do Brasil.
     Cada array deve conter os estados dessa região.
     */
-    let sul = ['Parana', 'Santa Catarina', 'Rio grande do sul'];
-    let sudeste = ['Sao paulo', 'Rio de Janeiro', 'Espirito santo', 'Minas gerais'];
+    let myArraySul = ['curitiba', 'florianopolis', 'porto alegre'];
+    let myArraySudeste = ['belo horizonte', 'sao paulo', 'rio de janeiro', 'florianopolis'];
+
 
     /*
     Crie uma variável chamada `brasil`, que irá receber as duas regiões
     concatenadas. Mostre o `brasil` no console.
     */
-    let brasil = sul.concat(sudeste);
+    let brasil;
+    brasil = myArraySul.concat(myArraySudeste)
+    console.log(brasil)
+
     console.log('\nAlguns Estados do Brasil:');
-    console.log(brasil);
 
     /*
     Adicione 3 novos estados da região Norte no início do array e mostre no console.
     */
-    brasil.unshift('Amapa', 'Amazonas', 'Para');
+    brasil.unshift('porto velho');
+    brasil.unshift('manaus');
+    brasil.unshift('rio branco');
+
+
+
+
     console.log('\nMais estados adicionados:');
+
     console.log(brasil);
 
     /*
     Remova o primeiro estado do array `brasil` e mostre-o no console.
     */
-    brasil.shift();
+
     console.log('\nEstado removido:');
-    console.log(brasil)
+
+    console.log(brasil.splice(0, 1));
+
     // ?
 
     /*
@@ -47,7 +62,14 @@
     pegando do array `brasil`. Não remova esses itens de `brasil`.
     */
     // ?
-    let newSul = brasil.slice(0, 3);
+    let newSul = brasil.slice(2, 5)
+
+
+
+
+
+
+
 
     /*
     Mostre no console os estados que estão em `newSul`.
@@ -56,55 +78,74 @@
     // ?
     console.log(newSul);
 
+
     /*
     Mostre no console todos os estados que estão em `brasil`.
     */
-    console.log(brasil)
-    console.log('\nAlguns Estados do Brasil:');
-    // ?
 
+    console.log('\nAlguns Estados do Brasil:');
+
+    console.log(brasil);
     /*
     Crie um novo array chamado `nordeste`, que tenha os estados do nordeste.
     */
     // ?
-    let nordeste = ['Bahia', 'Ceara', 'Maranhao', 'Paraiba', 'Pernambuco', 'Piaui', 'Rio Grande do Norte'];
+    let myArrayNordeste = ['salvador', 'aracaju', 'maceio', 'recife'];
+
 
     /*
     Mostre no console os estados do nordeste.
     */
     console.log('\nEstados do Nordeste:');
     // ?
-    console.log(nordeste)
+    console.log(myArrayNordeste);
+
     /*
     Remova de `brasil` os estados do `sudeste`, colocando-os em uma variável
     chamada `newSudeste`.
     */
-    // ?
-    let newSudeste = brasil.splice(5)
-    console.log(newSudeste)
-    console.log(brasil)
+
+
+
+
+
+
+    let newSudeste = [];
+    newSudeste = brasil.splice(5, 3);
+
+
 
     /*
     Adicione os estados do `nordeste` ao array `brasil`. Esses estados devem
     ficar no mesmo nível que os estados já existentes, não em um array separado.
-    */
-    brasil.splice(5, 0, 'Sao paulo', 'Rio de Janeiro', 'Espirito santo', 'Minas gerais');
+     */
+    // myArrayNordeste.forEach(function (i) {
+    //     brasil.push(i)
+    // })
+    brasil = brasil.concat(myArrayNordeste)
+    console.log(brasil)
+
 
     /*
     Mostre no console os estados em `newSudeste`.
     */
     console.log('\nEstados em newSudeste:');
     // ?
-    console.log(newSudeste)
+    console.log(newSudeste);
+
+
+
+
 
 
 
     /*
     Mostre no console os estados do `brasil`.
     */
-    console.log(brasil)
+
     console.log('\nAlguns estados do Brasil:');
     // ?
+    console.log(brasil)
 
     /*
     usando forEach, percorra o array `brasil` e gere um novo array chamado
@@ -114,25 +155,40 @@
     - `estado`: que será o estado do array `brasil`.
     */
     // ?
-    brasil.forEach(function () {
+    let newBrasil = [];
+    brasil.forEach(function (item, index) {
+        newBrasil.push({
+            id: index,
+            estado: item
+        })
+    });
 
-    })
+
+
+
+
 
     /*
     Mostre o array `newBrasil` no console
     */
     console.log('\nnewBrasil:');
     // ?
+    console.log(newBrasil)
 
     /*
-    Percorra o array `brasil` e verifique se os estados tem mais de 7 letras cada,
-    atribuindo o resultado à uma variável. Se tiver, mostre no console a frase:
-    - "Sim, todos os estados tem mais de 7 letras!"
-    Senão, mostre no console:
-    - "Nem todos os estados tem mais de 7 letras!"
-    */
+     Percorra o array `brasil` e verifique se os estados tem mais de 7 letras cada,
+     atribuindo o resultado à uma variável. Se tiver, mostre no console a frase:
+     - "Sim, todos os estados tem mais de 7 letras!"
+     Senão, mostre no console:
+     - "Nem todos os estados tem mais de 7 letras!"
+     */
+
     console.log('\nTodos os estados de `brasil` tem mais de 7 letras?');
     // ?
+    let every = brasil.every(function (i) {
+        return i.length > 7
+    })
+    console.log(every ? "Sim, todos os estados tem mais de 7 letras!" : "Nem todos os estados tem mais de 7 letras!")
 
     /*
     Percorra o array `brasil` e verifique se o Ceará está incluído, atribuindo o
@@ -143,7 +199,11 @@
     - "Ceará não foi incluído :("
     */
     console.log('\nCeará está incluído em `brasil`?');
-    // ?
+    console.log(brasil)
+    let someone = brasil.some(function (i) {
+        i === 'ceará'
+    })
+    console.log(someone ? "Ceará está incluído!" : "Ceará não foi incluído :(")
 
     /*
     Percorra o array `newBrasil` e crie um novo array que some 1 no ID de cada
@@ -153,17 +213,28 @@
     */
     // ?
 
+    let mapping = newBrasil.map(function (i) {
+        i.id += 1
+        return i.estado = i.estado + " pertence ao Brasil."
+    })
+    console.log(mapping)
+
+
     /*
     Mostre no console o array criado acima:
     */
     console.log('\nnewBrasil agora com mais informações:');
     // ?
+    console.log(newBrasil)
 
     /*
     Filtre o array criado acima, retornando somente os estados que tiverem
     ID par. Atribua o valor à uma variável chamada `filter`.
     */
-    // ?
+    let filtering = newBrasil.filter(function (i) {
+        return i.id % 2 === 0
+    })
+    console.log(filtering)
 
     /*
     Mostre o array filtrado acima no console.
