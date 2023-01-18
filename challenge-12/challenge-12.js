@@ -102,7 +102,9 @@
         "[PROPRIEDADE]: [VALOR]"
     */
     for (var i = 0; i < books.length; i++) {
+
         for (var prop in books[i]) {
+            console.log("😊" + books[i])
             console.log(prop + ': ' + books[i][prop])
         }
     }
